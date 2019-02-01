@@ -1,0 +1,103 @@
+<html>
+  <meta charset="ISO-8859-1" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <head>
+    <title>HotROD - Rides On Demand</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .uuid {
+        margin-top: 15px;
+      }
+      .aks-button {
+        padding: 20px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      .aks-button:hover {
+        cursor: pointer;
+        filter: brightness(85%);
+      }
+      #aks-log {
+        margin-top: 15px;
+      }
+      #tip {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="uuid alert alert-info"></div>
+      <center>
+        <h1>AKS Demo</h1>
+        <h4><em>Commands</em></h4>
+        <div class="row">
+          <div class="col-md-3 offset-md-3">
+            <span
+              class="btn btn-danger btn-block .aks-button"
+              id="create-aks-button"
+              >Create AKS Cluster</span
+            >
+          </div>
+          <div class="col-md-3">
+            <span class="btn btn-danger btn-block .aks-button"
+              >Delete AKS Cluster</span
+            >
+          </div>
+        </div>
+        <!-- <div id="tip">Click on customer name above to order a car.</div> -->
+        <div id="aks-log" class="lead"></div>
+      </center>
+    </div>
+  </body>
+
+  <script>
+    var clientUUID = Math.round(Math.random() * 10000);
+    var lastRequestID = 0;
+
+    $(".uuid").html(
+      "Your web client's id: <strong>" + clientUUID + "</strong>"
+    );
+
+    $("#create-aks-button").click(function(evt) {
+      lastRequestID++;
+      var requestID = clientUUID + "-" + lastRequestID;
+      var akslog = $(
+        $("#aks-log")
+          .prepend(
+            '<div class="aks-log"><em>Creating AKS cluster...[req: ' +
+              requestID +
+              "]</em></div>"
+          )
+          .children()[0]
+      );
+      headers = {
+        "jaeger-baggage": "session=" + clientUUID + ", request=" + requestID
+      };
+      console.log(headers);
+      $.ajax("/create", {
+        headers: headers,
+        method: "POST",
+        success: function(data, textStatus) {
+          console.log(data);
+          akslog.html("AKS Cluster Created");
+        }
+      });
+    });
+  </script>
+</html>
