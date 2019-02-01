@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/samkreter/trace-example/correlation"
-	"github.com/samkreter/trace-example/log"
+	"github.com/samkreter/go-core/correlation"
+	"github.com/samkreter/go-core/log"
 
 	"github.com/sirupsen/logrus"
 	"go.opencensus.io/plugin/ochttp"

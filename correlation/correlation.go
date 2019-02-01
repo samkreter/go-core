@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/samkreter/trace-example/log"
+	"github.com/samkreter/go-core/log"
 
 	uuid "github.com/satori/go.uuid"
 	"github.com/sirupsen/logrus"

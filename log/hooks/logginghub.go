@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/samkreter/trace-example/log"
+	"github.com/samkreter/go-core/log"
 
 	"github.com/sirupsen/logrus"
 )

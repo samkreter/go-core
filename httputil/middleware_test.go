@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/samkreter/trace-example/correlation"
+	"github.com/samkreter/go-core/correlation"
 )
 
 const (
