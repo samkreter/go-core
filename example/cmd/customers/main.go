@@ -4,9 +4,9 @@ import (
 	"context"
 	"flag"
 
-	"github.com/samkreter/trace-example/example/services/customers"
-	"github.com/samkreter/trace-example/log"
-	"github.com/samkreter/trace-example/trace"
+	"github.com/samkreter/go-core/example/services/customers"
+	"github.com/samkreter/go-core/log"
+	"github.com/samkreter/go-core/trace"
 	"github.com/sirupsen/logrus"
 )
 

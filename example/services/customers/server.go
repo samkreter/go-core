@@ -11,9 +11,9 @@ import (
 
 	otrace "go.opencensus.io/trace"
 
-	"github.com/samkreter/trace-example/httputil"
-	"github.com/samkreter/trace-example/log"
-	"github.com/samkreter/trace-example/trace"
+	"github.com/samkreter/go-core/httputil"
+	"github.com/samkreter/go-core/log"
+	"github.com/samkreter/go-core/trace"
 )
 
 const (

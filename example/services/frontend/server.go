@@ -9,8 +9,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/samkreter/trace-example/httputil"
-	"github.com/samkreter/trace-example/log"
+	"github.com/samkreter/go-core/httputil"
+	"github.com/samkreter/go-core/log"
 )
 
 const (
