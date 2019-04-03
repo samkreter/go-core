@@ -64,7 +64,7 @@ func (m ContextMatadataHeaders) FromReq(req *http.Request) {
 }
 
 func generateGUID() string {
-	guid, _ := uuid.NewV4()
+	guid := uuid.NewV4()
 	return guid.String()
 }
 
