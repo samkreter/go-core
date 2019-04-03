@@ -88,7 +88,7 @@ func (s *Server) handleCusomter(w http.ResponseWriter, req *http.Request) {
 }
 
 func DoWork(ctx context.Context, workNum string) {
-	_, span := trace.StartSpan(ctx, "DoingWork:"+workNum)
+	ctx, span := trace.StartSpan(ctx, "DoingWork:"+workNum)
 	defer span.End()
 
 	span.SetStatus(otrace.Status{
